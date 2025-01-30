@@ -80,6 +80,14 @@
     "image": null
   },
   {
+    "name": "Cat",
+    "type": "Painting",
+    "rarity": "Special",
+    "color": "#FF0000",
+    "quantity": 1,
+    "image": "images/cat.jpg"
+  },
+  {
     "name": "Statue",
     "type": "Painting",
     "rarity": "Legendary",

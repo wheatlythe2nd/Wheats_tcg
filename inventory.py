@@ -88,8 +88,8 @@ def main():
         print(f"Created images directory at {image_path}")
 
 
-    # Add the cards attributes
-    card_attributes = [
+    # Adds placeholder cards to inventory
+    card_placeholders = [
         Card("Thing1", "Type", Rarity.LAME),
         Card("Thing2", "Type", Rarity.LAME_PLUS),
         Card("Thing3", "Type", Rarity.COMMON),
@@ -102,25 +102,28 @@ def main():
         Card("Thing10", "Type", Rarity.SPECIAL_PLUS)
     ]
     
-    for card in card_attributes:
+    for card in card_placeholders:
         inventory.add_card(card)
 
-    # Create a card with an image
-    card1 = Card(
-        name="Statue",
-        type="Painting",
-        rarity=Rarity.LEGENDARY,
-        image=os.path.expanduser("images/statue.jpg")
+    # Function to create and add a card to the inventory
+    def add_card(name, type, rarity, image_path):
+        card = Card(
+            name=name,
+            type=type,
+            rarity=rarity,
+            image=os.path.expanduser(image_path)
         )
-    
-    print(f"Card1 image path: {card1.image}")  # Debugging line
-    # Check if the image file exists
-    if os.path.isfile(card1.image):
-        print(f"Image file exists: {card1.image}")
-    else:
-        print(f"Image file does not exist: {card1.image}")
+        print(f"Card image path: {card.image}")  # Debugging line
+        # Check if the image file exists
+        if os.path.isfile(card.image):
+            print(f"Image file exists: {card.image}")
+        else:
+            print(f"Image file does not exist: {card.image}")
+        inventory.add_card(card)
 
-    inventory.add_card(card1)
+    # Create and add cards
+    add_card("Cat", "Painting", Rarity.SPECIAL, "images/cat.jpg")
+    add_card("Statue", "Painting", Rarity.LEGENDARY, "images/statue.jpg")
 
     # Export JSON data
     inventory.export_to_json()

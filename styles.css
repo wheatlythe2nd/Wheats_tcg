@@ -14,14 +14,19 @@ body {
 .card {
     background: #2a2a2a;
     border-radius: 15px;
-    padding: 15px;
+    padding: 10px;
     margin: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
     width: 200px;          /* Fixed width */
     height: 300px;         /* Fixed height */
     position: relative;    /* For absolute positioning of quantity */
     overflow: hidden;      /* Hide overflow content */
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 .card:hover {
     transform: translateY(-10px);
@@ -41,6 +46,12 @@ body {
     background: #333;
     padding: 5px 10px;
     border-radius: 15px;
+}
+.card-image img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    margin: 10px 0;
 }
 h1 {
     text-align: center;
