@@ -88,7 +88,8 @@ def main():
         print(f"Created images directory at {image_path}")
 
 
-    # Adds placeholder cards to inventory
+     #Adds placeholder cards to inventory
+    """
     card_placeholders = [
         Card("Thing1", "Type", Rarity.LAME),
         Card("Thing2", "Type", Rarity.LAME_PLUS),
@@ -102,9 +103,10 @@ def main():
         Card("Thing10", "Type", Rarity.SPECIAL_PLUS)
     ]
     
+    
     for card in card_placeholders:
         inventory.add_card(card)
-
+    """
     # Function to create and add a card to the inventory
     def add_card(name, type, rarity, image_path):
         card = Card(
