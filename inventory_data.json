@@ -4,69 +4,87 @@
     "type": "Type",
     "rarity": "Lame",
     "color": "#808080",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing2",
     "type": "Type",
     "rarity": "Lame+",
     "color": "#999999",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing3",
     "type": "Type",
     "rarity": "Common",
     "color": "#e6e6e6",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing4",
     "type": "Type",
     "rarity": "Common+",
     "color": "#ffffff",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing5",
     "type": "Type",
     "rarity": "Rare",
     "color": "#0066FF",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing6",
     "type": "Type",
     "rarity": "Rare+",
     "color": "#00AAFF",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing7",
     "type": "Type",
     "rarity": "Legendary",
     "color": "#FFD700",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing8",
     "type": "Type",
     "rarity": "Legendary+",
     "color": "#FFA500",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing9",
     "type": "Type",
     "rarity": "Special",
     "color": "#FF0000",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
   },
   {
     "name": "Thing10",
     "type": "Type",
     "rarity": "Special+",
     "color": "#FF1493",
-    "quantity": 1
+    "quantity": 1,
+    "image": null
+  },
+  {
+    "name": "Statue",
+    "type": "Painting",
+    "rarity": "Legendary",
+    "color": "#FFD700",
+    "quantity": 1,
+    "image": "images/statue.jpg"
   }
 ]

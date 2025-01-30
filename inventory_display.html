@@ -23,6 +23,7 @@
                         <div class="card-type">${card.type}</div>
                         <div class="card-rarity" style="color: ${card.color}">${card.rarity}</div>
                         <div class="card-quantity">x${card.quantity}</div>
+                        <div class="card-image">${card.image ? `<img src="${card.image}" alt="${card.name} Images">` : ''}</div>
                     `;
                     container.appendChild(cardElement);
                 });

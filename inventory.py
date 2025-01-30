@@ -1,7 +1,10 @@
 from dataclasses import dataclass
 from typing import List
 from enum import Enum
+from pathlib import Path
 import json
+import os
+import subprocess
 
 class Rarity(Enum):
     LAME = ("Lame", "#808080")          # Dark Gray
@@ -19,12 +22,23 @@ class Rarity(Enum):
         self.label = label
         self.color = color
 
-@dataclass
 class Card:
-    name: str
-    type: str
-    rarity: Rarity
-    quantity: int = 1
+    def __init__(self, name: str, type: str, rarity: Rarity, image: str = None, quantity: int = 1):
+        self.name = name
+        self.type = type
+        self.rarity = rarity
+        self.image = image
+        self.quantity = quantity
+
+    def to_dict(self):
+        return {
+            "name": self.name,
+            "type": self.type,
+            "rarity": self.rarity.name,
+            "color": self.rarity.value,
+            "quantity": self.quantity,
+            "image": self.image or ""
+        }
 
 class Inventory:
     def __init__(self):
@@ -56,7 +70,8 @@ class Inventory:
                 'type': card.type,
                 'rarity': card.rarity.value[0],
                 'color': card.rarity.value[1],
-                'quantity': card.quantity
+                'quantity': card.quantity,
+                'image': card.image,
             })
         
         with open('inventory_data.json', 'w') as f:
@@ -66,6 +81,13 @@ class Inventory:
 def main():
     inventory = Inventory()
     
+    # Ensure images directory exists
+    image_path = os.path.join(os.path.dirname(__file__), "images")
+    if not os.path.exists(image_path):
+        os.makedirs(image_path)
+        print(f"Created images directory at {image_path}")
+
+
     # Add the cards attributes
     card_attributes = [
         Card("Thing1", "Type", Rarity.LAME),
@@ -83,13 +105,38 @@ def main():
     for card in card_attributes:
         inventory.add_card(card)
 
+    # Create a card with an image
+    card1 = Card(
+        name="Statue",
+        type="Painting",
+        rarity=Rarity.LEGENDARY,
+        image=os.path.expanduser("images/statue.jpg")
+        )
+    
+    print(f"Card1 image path: {card1.image}")  # Debugging line
+    # Check if the image file exists
+    if os.path.isfile(card1.image):
+        print(f"Image file exists: {card1.image}")
+    else:
+        print(f"Image file does not exist: {card1.image}")
+
+    inventory.add_card(card1)
+
     # Export JSON data
     inventory.export_to_json()
     
-    # Start local server
-    import subprocess
+    # Start local server with proper error handling
     print("\nStarting local server...")
-    subprocess.run(["python", "-m", "http.server", "8000"], shell=True)
+    try:
+        subprocess.run(
+            ["python", "-m", "http.server", "8000"],
+            check=True,
+            shell=False
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"Failed to start server: {e}")
+    except KeyboardInterrupt:
+        print("\nServer stopped by user")
 
 if __name__ == "__main__":
     main()

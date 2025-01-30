@@ -12,15 +12,16 @@ body {
     padding: 20px;
 }
 .card {
-background: #2a2a2a;
-border-radius: 10px;
-padding: 15px;
-box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-transition: transform 0.2s;
-width: 200px;          /* Fixed width */
-height: 300px;         /* Fixed height */
-position: relative;    /* For absolute positioning of quantity */
-overflow: hidden;      /* Hide overflow content */
+    background: #2a2a2a;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+    width: 200px;          /* Fixed width */
+    height: 300px;         /* Fixed height */
+    position: relative;    /* For absolute positioning of quantity */
+    overflow: hidden;      /* Hide overflow content */
 }
 .card:hover {
     transform: translateY(-10px);
@@ -45,4 +46,9 @@ h1 {
     text-align: center;
     color: #fff;
     margin-bottom: 30px;
+}
+.error {
+    color: red;
+    padding: 20px;
+    text-align: center;
 }
